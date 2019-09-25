@@ -25,6 +25,8 @@ It is also essential to examine the 5 TELOS principles. The technological aspect
 
 Design
 ---------
+![SystemDiagram](systemDiagram.jpg)
+**Fig. 1** This diagram shows the main components of the minimal rental app. It includes the input/outputs and main actions.
 
 Development
 --------
