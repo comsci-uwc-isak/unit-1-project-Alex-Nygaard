@@ -28,6 +28,9 @@ Design
 ![SystemDiagram](systemDiagram.jpg)
 **Fig. 1** This diagram shows the main components of the minimal rental app. It includes the input/outputs and main actions.
 
+### Flow diagram from creating a frame in bash
+
+
 Development
 --------
 ### 1. Script for installation
@@ -53,6 +56,21 @@ mkdir scripts
 echo "Installation complete"
 ```
 This script meets the requirement of the client for a simple installation. However, it could be simplified so that the user does not need to execute the program by typing `bash install.sh`
+
+### Problem solving
+1. How to detect a word's length is odd or even
+To detect if the number of characters in a string is odd or even, we must use module (%).
+```.sh
+(( isEven=$word%2 ))
+
+if [ $isEven -eq 0 ]; then
+    echo "This word has an even amount of characters"
+fi
+
+```
+2. How to create an uninstall program
+To uninstall a folder with contents in bash, you must not only use the `rm` command, but also add the argument `-r`.
+Full command is `rm -r Folder`
 
 Evaluation
 -----------
