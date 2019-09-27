@@ -59,7 +59,7 @@ This script meets the requirement of the client for a simple installation. Howev
 
 ### 2. Making a frame for the text
 This flowchart shows the process behind the script that creates a frame around a string.
-![FrameFlowchart](flowchartFrame.pdf)
+![FrameFlowchart](frameFlowchart.jpg)
 
 
 ### Problem solving
