@@ -57,6 +57,11 @@ echo "Installation complete"
 ```
 This script meets the requirement of the client for a simple installation. However, it could be simplified so that the user does not need to execute the program by typing `bash install.sh`
 
+### 2. Making a frame for the text
+This flowchart shows the process behind the script that creates a frame around a string.
+![FrameFlowchart](flowchartFrame.pdf)
+
+
 ### Problem solving
 1. How to detect a word's length is odd or even
 To detect if the number of characters in a string is odd or even, we must use module (%).
