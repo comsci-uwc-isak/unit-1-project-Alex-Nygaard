@@ -1,6 +1,7 @@
 Journal for Alexander Nygaard:
 
 Wed 25. sept 2019.
+------------------
 ### Tasks done
 * Created system diagram
 * Created github repository
@@ -15,4 +16,27 @@ Wed 25. sept 2019.
 ### What did i learn
 * How to create directories
 * Making a system diagram
+
+Fri 27. sept 2019.
+------------------
+### Tasks done
+* Created a frame-making script
+* Created flowchart for frame-making script
+* Integrated usage of frame script into the installation script
+
+### Questions
+(No questions at the moment)
+
+### To-do
+* Ensure the frame script is dynamic when considering the length of the text
+
+### What did i learn
+* Deeper understanding of flowcharts
+* Nesting loops
+* Interesting insight into computational thinking in the regards to the need for breaking up a problem into smaller problems (as we did with the flowchart)
+
+### Other reflections from class:
+##### What are the topics 4.1.6 (p.186) and 4.2.4 (p.220) and how do they link to what we did in class?
+* Topic 4.1.6 is about iterations associated with a given decision in a specified problem. During todays class we used this concept a lot, especially when making the frame-making script (using loops). 
+* Topic 4.2.4 is about analysing an algorithm presented as a flowchart. We did this while collectively making a flowchart for the frame-script. 
 
