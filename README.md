@@ -77,6 +77,14 @@ fi
 To uninstall a folder with contents in bash, you must not only use the `rm` command, but also add the argument `-r`.
 Full command is `rm -r Folder`
 
+### Developing the action Create new car
+This process involves the inputs _,_,_,_, and the outputs:
+The following steps describe the algorithm
+1. Get the inputs as arguments '$1 $2 $3 $4'
+2. Check number of arguments with `if [ $# -eq 4 ]`
+3. Store new car inside mainCarFile.txt using `echo "$1 $2 $3 $4 >> mainCarFile.txt`
+4. Create file for recording trips as plate.txt with `echo "$1" > plate.txt`
+
 Evaluation
 -----------
 
