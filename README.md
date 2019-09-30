@@ -85,6 +85,18 @@ The following steps describe the algorithm
 3. Store new car inside mainCarFile.txt using `echo "$1 $2 $3 $4 >> mainCarFile.txt`
 4. Create file for recording trips as plate.txt with `echo "$1" > plate.txt`
 
+### Developing the action Record a trip
+This process involves the inputs _,_, and the outputs:
+The following steps describe the algorithm
+1. Get the arguments (2) and check
+2. Check that the car exist (check if a file exists in bash)
+  - `test license.txt`
+  - `-f "license.txt"`
+3. Add a new line to the file license.txt
+
+### Developing the action Backup you data
+HOMEWORK
+
 Evaluation
 -----------
 
