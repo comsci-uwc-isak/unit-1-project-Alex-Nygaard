@@ -40,3 +40,20 @@ Fri 27. sept 2019.
 * Topic 4.1.6 is about iterations associated with a given decision in a specified problem. During todays class we used this concept a lot, especially when making the frame-making script (using loops). 
 * Topic 4.2.4 is about analysing an algorithm presented as a flowchart. We did this while collectively making a flowchart for the frame-script. 
 
+Mon 30. sept 2019.
+------------------
+### Tasks done
+* Created script for creating new cars
+* Created script for recording trips
+
+### Questions
+* How do you make a backup solution? 
+* How do you move files to a USB drive?
+
+### To-do
+* Create a back-up solution for the database
+
+### What did i learn
+* Creating and writing information to files
+* Checking if files exist in bash
+
