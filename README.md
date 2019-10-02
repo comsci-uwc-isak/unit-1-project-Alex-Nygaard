@@ -17,16 +17,20 @@ Planning
 ### Definition of the problem
 The context of the installation is as follows:
 
-While being provided close to no context regarding the previous system used by the car rental company, it is possible to assume that it was heavily paper-based, meaning low efficiency and difficult structures and processes for the basic procedures required by the company. The goal of this system installation is to completely replace this unsuitable system to address its many flaws, resulting in better usability, efficiency and overall performance. 
+The problem of the current systen is a follows. Currently the car rental company is using the traditional information flow and storage technique, meaning heavy paper-reliance and use. This method of manually writing down the relevant information and physically storing this is outdated, and results in huge disadvantages for the company. These disadvantages include low administrational efficiency, unneccessary time spent by employees on routine tasks and difficult data storage and access procedures. The new system is intended to fix these problems as best as possible 
 
-The new system will be an easy-to-use, terminal based software package that will digitize the flow and storage of information within the company. Using this system will greatly increase administrative efficiency, with its new capabilities including being able to create cars, log trips, query the trip history of a car, edit and delete cars, retrieve a summary from a car or all cars and safely backing up the data.
+### Proposed Solution
+The new system will be an easy-to-use, terminal (bash) based software package that will digitize the flow and storage of information within the company. Using this system will greatly increase administrative efficiency, with its new capabilities including being able to create cars, log trips, query the trip history of a car, edit and delete cars, retrieve a summary from a car or all cars and safely backing up the data.
 
-### Solution
+### Success Criteria
+These are outcomes that can be measured
 
-### How to measure success
-
-# WORK ON THIS, UNFINISHED
-
+1. A car can be created, deleted, and edited
+1. A trip can be recorded (distance driven) for a given car
+1. A summary (total distance travelled, average) of cars can be requested
+1. A basic working backup system is available
+1. The user can easily understand the commands (name notation, documentation, help command)
+1. Simple installation & uninstallation (no additional software, one-step process)
 
 Design
 ---------
@@ -100,7 +104,48 @@ The following steps describe the algorithm
 3. Add a new line to the file license.txt
 
 ### Developing the action Backup you data
-HOMEWORK
+There are two methods for backing up the data, one including copying the database to another folder on the desktop and the other involving copying the files to a USB stick.
+#### Option 1 (Desktop):
+The code required for backing up to a separate folder on the desktop is as follows:
+```.sh
+#!/bin/bash
+# This program creates a backup of the database folder in the app folder
+
+# Starting
+echo "Backup starting"
+
+# Navigate to the desktop to create a new folder (backup/)
+cd ~/desktop/
+# If theres already a folder called "backup", it is removed
+rm -r backup
+mkdir backup
+# Creats subfolder (backup/dataBase/)
+cd backup
+mkdir dataBase
+
+# Copies all (*) the files from the dataBase folder 
+# to the new folder (backup/) and subfolder (backup/dataBase/)
+cp ~/desktop/RentalCarApp/dataBase/* ~/desktop/backup/dataBase/
+```
+
+#### Option 2 (USB):
+```.sh
+# Save to a usb stick
+
+echo -n "What is your USB stick called? "
+read usbName
+
+cd /Volumes/%usbName/
+# If theres already a folder called "backup", it is removed
+rm -r backup
+mkdir backup
+# Creats subfolder (backup/dataBase/)
+cd backup
+mkdir dataBase
+
+# Copy files to USB stick
+cp ~/desktop/RentalCarApp/dataBase/* /Volumes/$usbName/backup/dataBase/
+```
 
 Evaluation
 -----------
