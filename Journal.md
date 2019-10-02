@@ -57,3 +57,18 @@ Mon 30. sept 2019.
 * Creating and writing information to files
 * Checking if files exist in bash
 
+Wed 2. oct 2019.
+------------------
+### Tasks done
+* Created backup script
+* Presented the steps of backup for the class, and listened to other scripts
+
+### Questions
+None
+
+### To-do
+* Update README.md page about context and planning
+
+### What did i learn
+* Copying files
+
