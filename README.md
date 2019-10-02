@@ -15,13 +15,18 @@ Contents
 Planning
 ----------
 ### Definition of the problem
-The context of the installation of the car rental system is as follows. 
+The context of the installation is as follows:
 
-It is obvious that the new system’s purpose is to outperform a previously used system, which might have been unsuitable for its purpose, inefficient, redundant or simply out-dated. 
+While being provided close to no context regarding the previous system used by the car rental company, it is possible to assume that it was heavily paper-based, meaning low efficiency and difficult structures and processes for the basic procedures required by the company. The goal of this system installation is to completely replace this unsuitable system to address its many flaws, resulting in better usability, efficiency and overall performance. 
 
-This new system will only replace the software of the previous system, while the hardware, people working on it and the immediate environment will most likely remain the same. However, the knowledge required to utilize and use the system would change, and thus retraining of relevant personnel would also be necessary.
+The new system will be an easy-to-use, terminal based software package that will digitize the flow and storage of information within the company. Using this system will greatly increase administrative efficiency, with its new capabilities including being able to create cars, log trips, query the trip history of a car, edit and delete cars, retrieve a summary from a car or all cars and safely backing up the data.
 
-It is also essential to examine the 5 TELOS principles. The technological aspect of the previous system would be sufficient to sustain the new system. Based on assumptions, the economic impact would be beneficial because of the increased efficiency of the information flow and storage. The legal, operational and schedule feasibility is quite irrelevant, and would not change while exchanging systems.
+### Solution
+
+### How to measure success
+
+# WORK ON THIS, UNFINISHED
+
 
 Design
 ---------
