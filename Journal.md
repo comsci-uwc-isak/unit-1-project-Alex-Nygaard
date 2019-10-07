@@ -72,3 +72,20 @@ None
 ### What did i learn
 * Copying files
 
+Mon 7. oct 2019.
+------------------
+### Tasks done
+* Created testing of creating a car script
+* Outlined steps for testing on repository (updated evaluation section)
+
+### Questions
+* Im still wondering about the difference between black/white box testing, and what is the best option?
+
+### To-do
+* No tasks to-do at the moment
+
+### What did i learn
+* How to read the last string of a text file
+* Different methods of testing (static/dynamic, alpha/beta, black-box/white-box, automatic)
+
+
