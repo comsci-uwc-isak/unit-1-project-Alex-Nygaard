@@ -88,7 +88,7 @@ fi
 To uninstall a folder with contents in bash, you must not only use the `rm` command, but also add the argument `-r`.
 Full command is `rm -r Folder`
 
-### Developing the action Create new car
+### Developing the steps for the action "Create new car"
 This process involves the inputs _,_,_,_, and the outputs:
 The following steps describe the algorithm
 1. Get the inputs as arguments '$1 $2 $3 $4'
@@ -96,7 +96,7 @@ The following steps describe the algorithm
 3. Store new car inside mainCarFile.txt using `echo "$1 $2 $3 $4 >> mainCarFile.txt`
 4. Create file for recording trips as plate.txt with `echo "$1" > plate.txt`
 
-### Developing the action Record a trip
+### Developing the steps for the action "Record a trip"
 This process involves the inputs _,_, and the outputs:
 The following steps describe the algorithm
 1. Get the arguments (2) and check
@@ -131,6 +131,7 @@ cp ~/desktop/RentalCarApp/dataBase/* ~/desktop/backup/dataBase/
 ```
 
 #### Option 2 (USB):
+This code is for backing up to a USB stick
 ```.sh
 # Save to a usb stick
 
@@ -151,6 +152,52 @@ cp ~/desktop/RentalCarApp/dataBase/* /Volumes/$usbName/backup/dataBase/
 
 Evaluation
 -----------
+### Test 1: 
+A car can be created and stored in the database
+For this purpose we will create the frile testCreate.sh. This is called software testing.
+
+The **first step** is to check for the file.
+```.sh
+# Navigate to the scripts folder
+cd ../scripts/
+
+# Check if creation script exists
+if [ -f "create.sh" ]; then
+    echo "File exists, test will start now"
+else
+    echo "File create.sh does not exist. Test failed"
+fi
+```
+Here the option `-f`in the if condition checks for a file in the working folder.
+
+The **second step** is to use the create script to record a new car TXM901 nissan red 9 (or any other test case).
+`bash create.sh TXM901 nissan red 9`
+
+The **third step** is to check that the .txt file was created inside the database folder with the license number:
+```.sh
+cd ../database
+if [ -f "TXM901.txt" ]; then
+    echo "Test one: file with the license plate created successfully. Passed"
+else
+    echo "Test one: file with license number not found: Failing"
+fi
+```
+
+The **fourth step** is to check if the last line of the mainCarFile.txt is "TXM901 nissan red 9".
+```.sh
+# Saves the last line of mainCarFile.txt into the variable lastline
+lastline=$( tail -n 1 mainCarFile.txt )
+
+# Checks if the last line is equal to the test case
+if [ "$lastline" == "TXM901 nissan red 9" ]; then
+    echo "Test completed successfully. File created, and information added to mainCarFile.txt"
+else
+    echo "Test failed. No TXM901 in mainCarFile.txt"
+fi
+```
+Notice: `lastline=$( tail -n 1 mainCarFile.txt )` is used to save and store the last line of any text file into a string.
+
+
 
 
 
