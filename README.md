@@ -197,7 +197,12 @@ fi
 ```
 Notice: `lastline=$( tail -n 1 mainCarFile.txt )` is used to save and store the last line of any text file into a string.
 
+#### This corresponds to a dynamic type of testing
+This is called **dynamic testing** because we executed the programmed code with a given test case. In other words, the testing took place while the system was run.
 
+This testing was also a type of **alpha testing**, meaning only the internal employees and developers of an organization tested the software, in contrast to beta testing where external clients and end users test.
 
+Lastly, we also tested the code useing the **white-box method**. We used the information and knowledge available about the internals of the system to understand what was wrong and to fix the various bugs met.
 
+This was also a type of **automatic testing**, atleast in the sense of the program we created. The new testing script will be able to control the execution of tests and then compare actual results with the predicted or expected results. 
 
