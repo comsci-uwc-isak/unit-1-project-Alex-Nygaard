@@ -150,6 +150,34 @@ mkdir dataBase
 cp ~/desktop/RentalCarApp/dataBase/* /Volumes/$usbName/backup/dataBase/
 ```
 
+### Devoloping the Summary action
+This script gives the user a summary of the distance driven by a single car.
+We can split this task into 3 smaller steps. These steps are outlined below in the code snippet.
+```.sh
+#!/bin/bash
+
+# Saves the total km
+totalKM=0
+
+FILE="../dataBase/$1.txt" # File directory
+
+# Reads the text file line by line
+while read line
+do
+
+  # Using nested loop, bash splits a line by spaces
+  for word in $line
+  do
+    ((totalKM+=$word)) # Add all the km
+    break # Breaks the nested loop after the first iteration, as we only need the km driven
+  done
+
+done < $FILE
+
+# Show the total km traveled
+bash frame.sh "Total km for $1: $totalKM km"
+```
+
 Evaluation
 -----------
 ### Test 1: 
@@ -205,4 +233,5 @@ This testing was also a type of **alpha testing**, meaning only the internal emp
 Lastly, we also tested the code useing the **white-box method**. We used the information and knowledge available about the internals of the system to understand what was wrong and to fix the various bugs met.
 
 This was also a type of **automatic testing**, atleast in the sense of the program we created. The new testing script will be able to control the execution of tests and then compare actual results with the predicted or expected results. 
+
 
