@@ -88,4 +88,18 @@ Mon 7. oct 2019.
 * How to read the last string of a text file
 * Different methods of testing (static/dynamic, alpha/beta, black-box/white-box, automatic)
 
+Wed 9. oct 2019.
+------------------
+### Tasks done
+* Created summary script
+
+### Questions
+* None
+
+### To-do
+* No tasks to-do at the moment
+
+### What did i learn
+* How to loop through text files, both lines and words
+
 
