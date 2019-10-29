@@ -44,7 +44,7 @@ Design
 
 Development
 --------
-### 1. Script for installation
+### Script for installation
 The script below creates the folder structure for the application.
 ```.sh
 #!/bin/bash
@@ -68,7 +68,7 @@ echo "Installation complete"
 ```
 This script meets the requirement of the client for a simple installation. However, it could be simplified so that the user does not need to execute the program by typing `bash install.sh`
 
-### 2. Making a frame for the text
+### Making a frame for the text
 This flowchart shows the process behind the script that creates a frame around a string.
 ![FrameFlowchart](frameFlowchart.jpg)
 
@@ -176,6 +176,24 @@ done < $FILE
 
 # Show the total km traveled
 bash frame.sh "Total km for $1: $totalKM km"
+```
+
+### Developing User Help Files
+We are creating manpages (manual pages) to provide the user with help and information about our commands.
+
+For more information about the manpages, please read https://www.cyberciti.biz/faq/linux-unix-creating-a-manpage/
+
+Below is the code created to explain the `create.sh` action:
+```.sh
+.TH man 6 "29 Oct 2019" "1.0" "create man page"
+.SH NAME
+create \- Creates a new car
+-SH SYNOPSIS
+bash create.sh [license] [maker] [model] [passengers]
+.SH DESCRIPTION
+create is a bash program that allows to create a new car in the database
+.SH AUTHOR
+Programmer: Alexander Nygaard
 ```
 
 Evaluation
