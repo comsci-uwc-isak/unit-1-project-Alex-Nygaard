@@ -49,28 +49,30 @@ The script below creates the folder structure for the application.
 
 # This program creates the folder structure for the minimal rental app
 
-echo "Starting installation"
+bash frame.sh "Welcome. Starting installation"
+
 echo "Installing in the desktop (default). Press enter"
 read 
 
-cd ~/desktop
-
-#Create app folder
-mkdir RentalCarApp
-cd RentalCarApp
-mkdir dataBase
+# Create app folder
 mkdir scripts
+cp ~/desktop/RentalCarApp\ copy/*.sh ~/desktop/RentalCarApp\ copy/scripts/
+mkdir dataBase
 
-#Confirm?
+# Confirm
 echo "Installation complete"
+
+# Removes all scripts in directory
+rm ~/desktop/RentalCarApp\ copy/*.sh
+cd scripts/
 ```
-This script meets the requirement of the client for a simple installation. However, it could be simplified so that the user does not need to execute the program by typing `bash install.sh`
+This script meets the requirement of the client for a simple installation. However, it could be simplified so that the user does not need to execute the program by typing `source install.sh`
 
 ### Making a frame for the text
 This flowchart shows the process behind the script that creates a frame around a string.
 ![FrameFlowchart](frameFlowchart.jpg)
 
-### Problem solving
+### Mini-problem solving
 1. How to detect a word's length is odd or even
 To detect if the number of characters in a string is odd or even, we must use module (%).
 ```.sh
@@ -79,7 +81,6 @@ To detect if the number of characters in a string is odd or even, we must use mo
 if [ $isEven -eq 0 ]; then
     echo "This word has an even amount of characters"
 fi
-
 ```
 2. How to create an uninstall program
 To uninstall a folder with contents in bash, you must not only use the `rm` command, but also add the argument `-r`.
@@ -91,7 +92,7 @@ The following steps describe the algorithm
 1. Get the inputs as arguments '$1 $2 $3 $4'
 2. Check number of arguments with `if [ $# -eq 4 ]`
 3. Store new car inside mainCarFile.txt using `echo "$1 $2 $3 $4 >> mainCarFile.txt`
-4. Create file for recording trips as plate.txt with `echo "$1" > plate.txt`
+4. Create file for recording trips as plate.txt with `echo "$1" > $license.txt`
 
 ### Developing the steps for the action "Record a trip"
 This process involves the inputs _,_, and the outputs:
@@ -108,15 +109,12 @@ This flowchart illustrates the algorithms structure:
 
 ### Developing the action Backup you data
 There are two methods for backing up the data, one including copying the database to another folder on the desktop and the other involving copying the files to a USB stick.
+
+The real script asks the user which method is preferred, and executes the appropriate code. The code below are merely snippets of the full program (the unique parts).
+
 #### Option 1 (Desktop):
 The code required for backing up to a separate folder on the desktop is as follows:
 ```.sh
-#!/bin/bash
-# This program creates a backup of the database folder in the app folder
-
-# Starting
-echo "Backup starting"
-
 # Navigate to the desktop to create a new folder (backup/)
 cd ~/desktop/
 # If theres already a folder called "backup", it is removed
@@ -129,6 +127,12 @@ mkdir dataBase
 # Copies all (*) the files from the dataBase folder 
 # to the new folder (backup/) and subfolder (backup/dataBase/)
 cp ~/desktop/RentalCarApp/dataBase/* ~/desktop/backup/dataBase/
+
+### NOT NECESSARY, ONLY FOR AESTHETIC PURPOSES
+# Prints the frame
+# Navigates to the folder of the frame.sh script
+cd ~/Desktop/RentalCarApp/scripts/
+bash frame.sh "Installation complete"
 ```
 
 #### Option 2 (USB):
@@ -155,53 +159,74 @@ cp ~/desktop/RentalCarApp/dataBase/* /Volumes/$usbName/backup/dataBase/
 Below is the flowchart created for the summary bash program.
 ![SummaryFlowchart](summaryFlowchart.jpg)
 
-This script gives the user a summary of the distance driven by a single car.
-We can split this task into 3 smaller steps. These steps are outlined below in the code snippet.
+This script gives the user a summary of the total and average distance driven by a single car.
 ```.sh
 #!/bin/bash
 
-# Saves the total km
+# This program gives a summary of a car, including total distance and average distance per trip
+
 totalKM=0
+numOfTrips=0
 
-FILE="../dataBase/$1.txt" # File directory
-
-# Reads the text file line by line
+FILE="../dataBase/$1.txt"
 while read line
 do
-
-  # Using nested loop, bash splits a line by spaces
+  # Bash splits a line by spaces
   for word in $line
   do
-    ((totalKM+=$word)) # Add all the km
-    break # Breaks the nested loop after the first iteration, as we only need the km driven
+    # Add all the km
+    ((totalKM+=$word))
+    ((numOfTrips++))
+    break
   done
 
 done < $FILE
 
-# Show the total km traveled
-bash frame.sh "Total km for $1: $totalKM km"
+((average=$totalKM/$numOfTrips))
+
+# Show very nicely the total km traveled
+
+bash frame.sh "Total km for $1: $totalKM km. Average km: $average."
+
 ```
 
-### Developing User Help Files
-We are creating manpages (manual pages) to provide the user with help and information about our commands.
+### Developing A User Help File
+To create a help file or documentation on the commands for the user, one could either create a manpage or a simple help script. Both are outlined below:
+
+When creating manpages (manual pages) to provide the user with help and information about our commands, we must follow the instructions outlined on the webpage below.
 
 For more information about the manpages, please read https://www.cyberciti.biz/faq/linux-unix-creating-a-manpage/
 
-Below is the code created to explain the `create.sh` action:
+However, when attempting to create these manpages I ran into mulitple technical errors. After a long and continous to fix these issues, I decided to rather switch to making a **simple help script**. This would essentially work as a normal bash script, while receiving one argument (being the command that the user is curious about).
+The script would then provide the
+1. Name
+1. Synopsis
+1. Description
+1. Author
+
+Below is the a sample code created to show the structure of the output of the help action:
 ```.sh
-.TH man 6 "29 Oct 2019" "1.0" "create man page"
-.SH NAME
-create \- Creates a new car
--SH SYNOPSIS
-bash create.sh [license] [maker] [model] [passengers]
-.SH DESCRIPTION
-create is a bash program that allows to create a new car in the database
-.SH AUTHOR
-Programmer: Alexander Nygaard
+if [ $1 == "create" ]; then
+    echo "** NAME **"
+    echo "  create - Creates a new car"
+    echo ""
+
+    echo "** SYNOPSIS **"
+    echo "  bash create.sh [license] [maker] [model] [passengers]"
+    echo ""
+
+    echo "** DESCRIPTION **"
+    echo "  Create is a bash program that allows to create a new car in the database"
+    echo ""
+
+    echo "** AUTHOR **"
+    echo "  Programmer: Alexander Nygaard"
 ```
 
 Evaluation
 -----------
+
+
 ### Test 1: 
 A car can be created and stored in the database
 For this purpose we will create the frile testCreate.sh. This is called software testing.
