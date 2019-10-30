@@ -70,7 +70,6 @@ This script meets the requirement of the client for a simple installation. Howev
 This flowchart shows the process behind the script that creates a frame around a string.
 ![FrameFlowchart](frameFlowchart.jpg)
 
-
 ### Problem solving
 1. How to detect a word's length is odd or even
 To detect if the number of characters in a string is odd or even, we must use module (%).
@@ -149,6 +148,9 @@ cp ~/desktop/RentalCarApp/dataBase/* /Volumes/$usbName/backup/dataBase/
 ```
 
 ### Devoloping the Summary action
+Below is the flowchart created for the summary bash program.
+![SummaryFlowchart](summaryFlowchart.jpeg)
+
 This script gives the user a summary of the distance driven by a single car.
 We can split this task into 3 smaller steps. These steps are outlined below in the code snippet.
 ```.sh
