@@ -17,20 +17,20 @@ Planning
 ### Definition of the problem
 The context of the installation is as follows:
 
-The problem that the Car Rental Company faces is as follows. The organizational and structural flow and storage of information is not satisfactory. The company currently uses a paper-based solution for which the employees log all the neccessary information, including all everything regarding the cars and trips. This heavy reliance on physical paper translates on practical level into low efficiency and difficult structures and processes for the basic procedures required by the company. The goal of this system installation is to completely replace this unsuitable system to address its many flaws, resulting in better usability, efficiency and overall performance. 
+The problem that the Car Rental Company faces is as such: The organizational and structural flow and storage of information is not satisfactory. The company currently uses a paper-based solution for which the employees log all the neccessary information, including everything regarding the cars and trips. This heavy reliance on physical paper translates on a practical level into low efficiency and difficult structures and processes for the basic procedures required by the company. The goal of this system installation is to completely replace this unsuitable system to address its many flaws, resulting in better usability, efficiency and overall performance. 
 
 ### Proposed solution
-The new system will be an easy-to-use, terminal (bash) based software package that will digitize the flow and storage of information within the company. Using this system will greatly increase administrative efficiency, with its new capabilities including being able to create cars, log trips, query the trip history of a car, edit and delete cars, retrieve a summary from a car or all cars and safely backing up the data.
+The new system will be an easy-to-use, terminal (bash) based software package that will digitize the flow and storage of information within the company. Using this system will greatly increase administrative efficiency, with its new capabilities including being able to create cars, log trips, query the trip history of a car, edit and delete cars, retrieve a summary from a car and safely backing up the data. An easy installation and uninstallation is also required.
 
 ### Success Criteria
 These are outcomes that can be measured
+1. Installation is **simple**, it does not require aditional software, one step process
 1. A car can be created
-1. A trip can be recorded fro a given car
-1. A summary (total distance travel, average) of cars acan be requested
+1. A trip can be recorded for a given car
+1. A summary (total distance travel, average) of cars can be requested
 1. A cars information can be edited
 1. A basic working backup system is available
-1. The user can easily (name notation, documentation) understand the commands
-1. Installation is **simple**, it does not require aditional software, one step process
+1. The user can easily understand the commands (name notation, documentation)
 1. A car information can be deleted
 1. The application can be uninstalled
 
