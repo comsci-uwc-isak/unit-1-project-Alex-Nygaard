@@ -102,6 +102,10 @@ The following steps describe the algorithm
   - `-f "license.txt"`
 3. Add a new line to the file license.txt
 
+This flowchart illustrates the algorithms structure:
+![RecordFlowchart](recordFlowchart.jpg)
+
+
 ### Developing the action Backup you data
 There are two methods for backing up the data, one including copying the database to another folder on the desktop and the other involving copying the files to a USB stick.
 #### Option 1 (Desktop):
