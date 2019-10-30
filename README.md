@@ -149,7 +149,7 @@ cp ~/desktop/RentalCarApp/dataBase/* /Volumes/$usbName/backup/dataBase/
 
 ### Devoloping the Summary action
 Below is the flowchart created for the summary bash program.
-![SummaryFlowchart](summaryFlowchart.jpeg)
+![SummaryFlowchart](summaryFlowchart.jpg)
 
 This script gives the user a summary of the distance driven by a single car.
 We can split this task into 3 smaller steps. These steps are outlined below in the code snippet.
