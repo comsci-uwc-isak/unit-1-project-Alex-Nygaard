@@ -229,7 +229,7 @@ Evaluation
 
 ### Test 1: 
 A car can be created and stored in the database
-For this purpose we will create the frile testCreate.sh. This is called software testing.
+For this purpose we will create the file testCreate.sh. This is called software testing.
 
 The **first step** is to check for the file.
 ```.sh
