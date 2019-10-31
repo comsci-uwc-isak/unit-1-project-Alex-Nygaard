@@ -44,6 +44,9 @@ Development
 --------
 ### Script for installation
 The script below creates the folder structure for the application.
+
+**NOTE:** This script should (but it is not required) be run with the command `source install.sh`, instead of `bash install.sh`.
+
 ```.sh
 #!/bin/bash
 
@@ -52,19 +55,17 @@ The script below creates the folder structure for the application.
 bash frame.sh "Welcome. Starting installation"
 
 echo "Installing in the desktop (default). Press enter"
-read 
+read
 
 # Create app folder
+
 mkdir scripts
-cp ~/desktop/RentalCarApp\ copy/*.sh ~/desktop/RentalCarApp\ copy/scripts/
+mv ~/desktop/RentalCarApp/*.sh ~/desktop/RentalCarApp/scripts/
 mkdir dataBase
+cd scripts
 
 # Confirm
 echo "Installation complete"
-
-# Removes all scripts in directory
-rm ~/desktop/RentalCarApp\ copy/*.sh
-cd scripts/
 ```
 This script meets the requirement of the client for a simple installation. However, it could be simplified so that the user does not need to execute the program by typing `source install.sh`
 
@@ -86,13 +87,21 @@ fi
 To uninstall a folder with contents in bash, you must not only use the `rm` command, but also add the argument `-r`.
 Full command is `rm -r Folder`
 
+3. Moving files
+To move files, you must use the command `mv [source] [destination]`
+Another important and useful tip is to use the `*.sh` ending for the [source]. This ensures that only all the .sh files are moved.
+
+4. Launching a program with source
+I quickly encountered the issue of the `bash [filename]` command, meaning that the script is executed in a sub-shell. This was undesirable, mainly because during the installation it is useful that the current terminal session of the user remains in the directory of the scripts. This is important because then the user can immediately start executing scripts, and not be required to type `cd scripts`.
+To fix this issue, the command `source [filename]` or `. [filename]` can be used instead. This `source` command reads and executes commands from the file specified as its argument in the current shell environment. In practical terms, this results in the user remaining in the /scripts directory after executing the installation file. ([Source](https://linuxize.com/post/bash-source-command/), published 17. Jun 2019, retrived 31. Oct 2019)
+
 ### Developing the steps for the action "Create new car"
 This process involves the inputs _,_,_,_, and the outputs:
 The following steps describe the algorithm
 1. Get the inputs as arguments '$1 $2 $3 $4'
 2. Check number of arguments with `if [ $# -eq 4 ]`
-3. Store new car inside mainCarFile.txt using `echo "$1 $2 $3 $4 >> mainCarFile.txt`
-4. Create file for recording trips as plate.txt with `echo "$1" > $license.txt`
+3. Store new car inside mainCarFile.txt using `echo "$1 $2 $3 $4" >> mainCarFile.txt`
+4. Create file for recording trips as plate.txt with `echo "" > $license.txt`
 
 ### Developing the steps for the action "Record a trip"
 This process involves the inputs _,_, and the outputs:
@@ -106,11 +115,10 @@ The following steps describe the algorithm
 This flowchart illustrates the algorithms structure:
 ![RecordFlowchart](recordFlowchart.jpg)
 
+### Developing the action "Backup you data"
+There are two methods for backing up the data, one including copying the database to another folder on the **desktop** and the other involving copying the files to a **USB stick**.
 
-### Developing the action Backup you data
-There are two methods for backing up the data, one including copying the database to another folder on the desktop and the other involving copying the files to a USB stick.
-
-The real script asks the user which method is preferred, and executes the appropriate code. The code below are merely snippets of the full program (the unique parts).
+The full script asks the user which method is preferred, and executes the appropriate code. The code below are merely snippets of the full program (the unique options).
 
 #### Option 1 (Desktop):
 The code required for backing up to a separate folder on the desktop is as follows:
@@ -143,7 +151,7 @@ This code is for backing up to a USB stick
 echo -n "What is your USB stick called? "
 read usbName
 
-cd /Volumes/%usbName/
+cd /Volumes/$usbName/
 # If theres already a folder called "backup", it is removed
 rm -r backup
 mkdir backup
@@ -186,8 +194,7 @@ done < $FILE
 
 # Show very nicely the total km traveled
 
-bash frame.sh "Total km for $1: $totalKM km. Average km: $average."
-
+bash frame.sh "Total km for $1: $totalKM km. Average km: $average km."
 ```
 
 ### Developing A User Help File
@@ -197,7 +204,7 @@ When creating manpages (manual pages) to provide the user with help and informat
 
 For more information about the manpages, please read https://www.cyberciti.biz/faq/linux-unix-creating-a-manpage/
 
-However, when attempting to create these manpages I ran into mulitple technical errors. After a long and continous to fix these issues, I decided to rather switch to making a **simple help script**. This would essentially work as a normal bash script, while receiving one argument (being the command that the user is curious about).
+However, when attempting to create these manpages I ran into mulitple technical errors. After a long and continous effort to fix these issues, I decided to rather switch to making a **simple help script**. This would essentially work as a normal bash script, while receiving one argument (being the command that the user is curious about).
 The script would then provide the
 1. Name
 1. Synopsis
@@ -225,6 +232,22 @@ if [ $1 == "create" ]; then
 
 Evaluation
 -----------
+
+To evaluate the provided solution, the success criteria from the planning chapter must be revisited.
+As a reminder, the success criteria needed to ensure that the client will be satisfied with the product are as follows:
+
+1. Installation is **simple**, it does not require aditional software, one step process
+1. A car can be created
+1. A trip can be recorded for a given car
+1. A summary (total distance travel, average) of cars can be requested
+1. A cars information can be edited
+1. A basic working backup system is available
+1. The user can easily understand the commands (name notation, documentation)
+1. A car information can be deleted
+1. The application can be uninstalled
+
+I have outlined these steps in the table for the Test Plan below. To ensure these the software package works, these steps must be followed in order and with the recommended input. To see if the step was a success, the actual result can be compared and evaluated against the intended "output" listed in the table:
+
 
 
 ### Test 1: 
