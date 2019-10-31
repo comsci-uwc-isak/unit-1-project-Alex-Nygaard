@@ -248,6 +248,7 @@ As a reminder, the success criteria needed to ensure that the client will be sat
 
 I have outlined these steps in the table for the Test Plan below. To ensure these the software package works, these steps must be followed in order and with the recommended input. To see if the step was a success, the actual result can be compared and evaluated against the intended "output" listed in the table:
 
+![TestPlan](testPlan.png)
 
 
 ### Test 1: 
