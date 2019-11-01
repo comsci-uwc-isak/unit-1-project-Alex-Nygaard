@@ -11,6 +11,7 @@ Contents
   1. [Design](#design)
   1. [Development](#development)
   1. [Evalution](#evaluation)
+  1. [Improvements](#improvements)
 
 Planning
 ----------
@@ -456,10 +457,10 @@ bash delete.sh WDC456
 
 
 
-Recommendations for improvements
+Improvements
 -----------
 
-Overall, this product has met all the requirements of the client and performs its intended tasks well. It is completed with all the intended functionalities that were realistic to include in the time limit of the development. Given more time, more features could have been added, and existing features could have been improved further. A few steps I would recommend for future improvements to this software package would be as follows:
+Overall, this product has met all the requirements of the client and performs its intended tasks well. It is completed with all the intended functionalities that were realistic to include in the time limit of the development. Given more time, more features could have been added, and existing features could have been improved further. **A few steps I would recommend for future improvements to this software package would be as follows:**
 
 ##### Easier opening and closing of the program.
 When starting up the computer running the program, the client would have to manually open the terminal and navigate to the `/scripts` folder to be able to run the programs. A better solution would be an .exe application that the client could launch, and immediately be ready to execute commands.
@@ -469,14 +470,3 @@ Currently, the backup system is quite primitive and simple. The choice of backin
 
 ##### Graphical User Interface
 The current text-based user interface might be perceived as intimidating and difficult to use by certain clients. An improved GUI application would greatly improve both the user experience and the usability of the product. While not knowing specifically how this would be accomplished, I know there are many GUI libraries in various programming languages. 
-
-
-
-
-
-
-
-
-
-
-
