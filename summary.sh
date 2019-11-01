@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# This is an example script that solves the smaller problems for the action summary
-# 1. Read a .txt file line by line
-# 2. Splir a line by spaces
-# 3. Add the first number in a line
+# This program gives a summary of a car, including total distance and average distance per trip
 
 totalKM=0
+numberOfTrips=0
 
 FILE="../dataBase/$1.txt"
 while read line
@@ -15,11 +13,14 @@ do
   do
     # Add all the km
     ((totalKM+=$word))
+    ((numOfTrips++))
     break
   done
 
 done < $FILE
 
+((average=$totalKM/$numOfTrips))
+
 # Show very nicely the total km traveled
 
-bash frame.sh "Total km for $1: $totalKM km"
+bash frame.sh "Total km for $1: $totalKM km. Average km: $average km."

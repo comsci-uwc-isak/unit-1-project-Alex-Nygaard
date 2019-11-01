@@ -2,20 +2,17 @@
 
 # This program creates the folder structure for the minimal rental app
 
-bash frame.sh 100 "Welcome. Starting installation"
+bash frame.sh "Welcome. Starting installation"
 
-#echo "Starting installation"
 echo "Installing in the desktop (default). Press enter"
-read 
+read
 
-cd ~/desktop
+# Create app folder
 
-#Create app folder
-mkdir RentalCarApp
-cd RentalCarApp
-mkdir dataBase
 mkdir scripts
+mv ~/desktop/RentalCarApp/*.sh ~/desktop/RentalCarApp/scripts/
+mkdir dataBase
+cd scripts
 
-#Confirm?
+# Confirm
 echo "Installation complete"
-

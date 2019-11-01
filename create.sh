@@ -13,11 +13,11 @@ fi
 license=$1
 maker=$2
 model=$3
-ppl=$4
+passengers=$4
 
 # This creates a new line in the file mainCarFile.txt inside CarRentalApp
-echo "$license $maker $model $ppl" >> ~/desktop/RentalCarApp/dataBase/mainCarFile.txt
+echo "$license $maker $model $passengers" >> ~/desktop/RentalCarApp/dataBase/mainCarFile.txt
 echo "" > ~/desktop/RentalCarApp/dataBase/$license.txt
 
-bash frame.sh "Installation complete"
+bash frame.sh "Creation complete"
 

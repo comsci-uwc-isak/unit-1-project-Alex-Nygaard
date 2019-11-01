@@ -4,7 +4,7 @@
 # Arguments received include length, padding and symbol
 
 length=100
-padding=3
+padding=4
 symbol=x
 text=$1
 # Get the text from the user
@@ -27,14 +27,11 @@ do
     #Printing right number of spaces
     for (( c=1; c<=$length-2; c++ ))
     do
-    echo -n " "
+        echo -n " "
     done
     echo $symbol
 
 done
-
-
-
 
 #######################################
 # PRINT LINE WITH TEXT
@@ -83,7 +80,7 @@ do
     #Printing right number of spaces
     for (( c=1; c<=$length-2; c++ ))
     do
-    echo -n " "
+        echo -n " "
     done
     echo $symbol
 
@@ -98,4 +95,3 @@ do
 done
 
 echo ""
-

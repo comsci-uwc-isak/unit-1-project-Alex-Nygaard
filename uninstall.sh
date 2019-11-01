@@ -8,8 +8,8 @@ read
 
 cd ~/desktop
 
-#Create app folder
+# Delete app folder
 rm -R RentalCarApp/
 
-#Confirm?
+# Confirm
 echo "Deletion complete"
