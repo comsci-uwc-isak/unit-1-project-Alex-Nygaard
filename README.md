@@ -115,7 +115,7 @@ The following steps describe the algorithm
 This flowchart illustrates the algorithms structure:
 ![RecordFlowchart](recordFlowchart.jpg)
 
-### Developing the action "Backup you data"
+### Developing the action "Backup your data"
 There are two methods for backing up the data, one including copying the database to another folder on the **desktop** and the other involving copying the files to a **USB stick**.
 
 The full script asks the user which method is preferred, and executes the appropriate code. The code below are merely snippets of the full program (the unique options).
@@ -260,10 +260,13 @@ I have outlined these steps in the table for the Test Plan below. To ensure thes
 | 7. Car info can be deleted                 | bash delete.sh ABC123               | Car info is removed from mainCarFile.txt and from the dataBase        | Yes   |
 | 8. App can be uninstalled                  | bash uninstall.sh                   | There are zero files left after the uninstall                         | Yes   |
 
+### Examples of testing with software
+
+When testing the functionality of the program, **software testing** can be used for more efficient and easy testing. This essentially means creating a program that executes a predetermined function of the software package, as shown below. Using proper error logging, it becomes much easier to spot and identify bugs. Outlined below there are 3 different testing programs that test 3 individual functionalities of the software; create, record and edit.
 
 ### Test 1: Create
 A car can be created and stored in the database
-For this purpose we will create the file testCreate.sh. This is called software testing.
+For this purpose we will create the file testCreate.sh. This is called **software testing**.
 
 The **first step** is to check for the file.
 ```.sh
@@ -331,7 +334,7 @@ This was also a type of **automatic testing**, atleast in the sense of the progr
 
 ### Test 2: Record
 A trip can be recorded, with the distance driven added to the car .txt file.
-For this purpose we will create the file testRecord.sh. This is called software testing.
+For this purpose we will create the file testRecord.sh. This is called **software testing**.
 
 The **first step** is to check for the create file.
 ```.sh
@@ -386,7 +389,7 @@ bash delete.sh QWT789
 
 ### Test 3: Edit
 A cars information can be edited, with the maker, model and no. of passengers being changed.
-For this purpose we will create the file testEdit.sh. This is called software testing.
+For this purpose we will create the file testEdit.sh. This is called **software testing**.
 
 The **first step** is to check for the edit file.
 ```.sh
@@ -422,6 +425,58 @@ fi
 ```
 
 The **third step** is to edit the car information 
+```.sh
+# Edits the information of the car
+cd ../scripts/
+bash edit.sh WDC456 audi 2010 7
+
+# Check that the .txt file was created
+cd ../dataBase
+
+# Saves the last line of WDC456.txt into the variable lastline
+lastline=$( tail -n 1 mainCarFile.txt )
+
+if [ "$lastline" == "WDC456 audi 2010 7" ]; then
+    echo "Test two: car created successfully. Passed"
+else
+    echo "Test two: car not found: Failing"
+    exit
+fi
+```
+
+The **fourth step** is deleting the test car and completing the test.
+```.sh
+# Test finished
+cd ../scripts/
+bash frame.sh "Test complete. Success. Press enter to delete test car."
+read a
+# Deletes the car
+bash delete.sh WDC456
+```
+
+
+
+Recommendations for improvements
+-----------
+
+Overall, this product has met all the requirements of the client and performs its intended tasks well. It is completed with all the intended functionalities that were realistic to include in the time limit of the development. Given more time, more features could have been added, and existing features could have been improved further. A few steps I would recommend for future improvements to this software package would be as follows:
+
+##### Easier opening and closing of the program.
+When starting up the computer running the program, the client would have to manually open the terminal and navigate to the `/scripts` folder to be able to run the programs. A better solution would be an .exe application that the client could launch, and immediately be ready to execute commands.
+
+##### Improving the backup system
+Currently, the backup system is quite primitive and simple. The choice of backing up to the desktop or to an USB stick might not be enough for many users. This problem could be solved by uploading to a remote server or a cloud service provider. I believe this could be accomplished using various libraries readily available already.
+
+##### Graphical User Interface
+The current text-based user interface might be perceived as intimidating and difficult to use by certain clients. An improved GUI application would greatly improve both the user experience and the usability of the product. While not knowing specifically how this would be accomplished, I know there are many GUI libraries in various programming languages. 
+
+
+
+
+
+
+
+
 
 
 
