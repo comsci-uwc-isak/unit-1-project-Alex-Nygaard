@@ -248,10 +248,20 @@ As a reminder, the success criteria needed to ensure that the client will be sat
 
 I have outlined these steps in the table for the Test Plan below. To ensure these the software package works, these steps must be followed in order and with the recommended input. To see if the step was a success, the actual result can be compared and evaluated against the intended "output" listed in the table:
 
-![TestPlan](testPlan.png)
+| Step                                       | Input                               | Output                                                                | Check |
+|--------------------------------------------|-------------------------------------|-----------------------------------------------------------------------|-------|
+| 1. App is easily installed                 | souce install.sh                    | Folder is created with all files correct directory                    | Yes   |
+| 2. Create a car                            | bash create.sh ABC123 toyota 2004 5 | File ABC123.txt is created, mainCarFile.txt is updated                | Yes   |
+| 3. A trip can be recorded                  | bash record.sh ABC123 350           | File ABC123.txt is updated, the distance is added to a new line       | Yes   |
+| 3. Summary                                 | bash summary.sh ABC123              | Total km driven, and average per trip is displayed                    | Yes   |
+| 4. A car can be edited                     | bash edit.sh ABC123 nissan 2007 7   | File mainCarFile.txt is updated, info for the specific car is changed | Yes   |
+| 5. Backup system works                     | bash backup.sh                      | A backup is created either on the desktop or on a USB                 | Yes   |
+| 6. User can easily understand the commands | bash help.sh [command]              | Detailed and relevant information regarding the commands              | Yes   |
+| 7. Car info can be deleted                 | bash delete.sh ABC123               | Car info is removed from mainCarFile.txt and from the dataBase        | Yes   |
+| 8. App can be uninstalled                  | bash uninstall.sh                   | There are zero files left after the uninstall                         | Yes   |
 
 
-### Test 1: 
+### Test 1: Create
 A car can be created and stored in the database
 For this purpose we will create the file testCreate.sh. This is called software testing.
 
@@ -265,6 +275,7 @@ if [ -f "create.sh" ]; then
     echo "File exists, test will start now"
 else
     echo "File create.sh does not exist. Test failed"
+    exit
 fi
 ```
 Here the option `-f`in the if condition checks for a file in the working folder.
@@ -279,6 +290,7 @@ if [ -f "TXM901.txt" ]; then
     echo "Test one: file with the license plate created successfully. Passed"
 else
     echo "Test one: file with license number not found: Failing"
+    exit
 fi
 ```
 
@@ -296,6 +308,17 @@ fi
 ```
 Notice: `lastline=$( tail -n 1 mainCarFile.txt )` is used to save and store the last line of any text file into a string.
 
+The **fifth step** is deleting the test car, and completing the test.
+```.sh
+cd ../scripts/
+
+bash frame.sh "Test complete. Passed. Press enter to delete test car."
+read b
+
+# Delete test car
+bash delete.sh TXM901
+```
+
 #### This corresponds to a dynamic type of testing
 This is called **dynamic testing** because we executed the programmed code with a given test case. In other words, the testing took place while the system was run.
 
@@ -304,5 +327,101 @@ This testing was also a type of **alpha testing**, meaning only the internal emp
 Lastly, we also tested the code useing the **white-box method**. We used the information and knowledge available about the internals of the system to understand what was wrong and to fix the various bugs met.
 
 This was also a type of **automatic testing**, atleast in the sense of the program we created. The new testing script will be able to control the execution of tests and then compare actual results with the predicted or expected results. 
+
+
+### Test 2: Record
+A trip can be recorded, with the distance driven added to the car .txt file.
+For this purpose we will create the file testRecord.sh. This is called software testing.
+
+The **first step** is to check for the create file.
+```.sh
+# Navigate to the scripts folder
+cd ../scripts/
+
+# Check if creation script exists
+if [ -f "create.sh" ]; then
+    echo "File exists, test will start now"
+else
+    echo "File create.sh does not exist. Test failed"
+    exit
+fi
+```
+
+The **second step** is to create a test car, and record a test trip.
+```.sh
+# Create test car
+bash create.sh QWT789 porche 2010 4
+
+# Record a test trip
+bash record.sh QWT789 275
+```
+
+The **third step** is to check that the trip was recorded successfully.
+```.sh
+# Check that the .txt file was created
+cd ../dataBase
+
+# Saves the last line of QWT789.txt into the variable lastline
+lastline=$( tail -n 1 QWT789.txt )
+
+if [ "$lastline" == "275" ]; then
+    echo "Test one: trip recorded successfully. Passed"
+else
+    echo "Test one: trip not found: Failing"
+    exit
+fi
+```
+
+The **fourth step** is to delete the test car, and complete the test.
+```.sh
+cd ../scripts/
+
+bash frame.sh "Test complete. Success. Press enter to delete test car."
+read a
+
+# Delete test car
+bash delete.sh QWT789
+```
+
+
+### Test 3: Edit
+A cars information can be edited, with the maker, model and no. of passengers being changed.
+For this purpose we will create the file testEdit.sh. This is called software testing.
+
+The **first step** is to check for the edit file.
+```.sh
+# Navigate to the scripts folder
+cd ../scripts/
+
+# Check if edit script exists
+if [ -f "edit.sh" ]; then
+    echo "File exists, test will start now"
+else
+    echo "File record.sh does not exist. Test failed"
+    exit
+fi
+```
+
+The **second step** is to create a test car, and check if the information was added to the mainCarFile.txt successfully.
+```.sh
+# Creates a new test car
+bash create.sh WDC456 bmw 2009 6
+
+# Check that the .txt file was created
+cd ../dataBase/
+
+# Saves the last line of WDC456.txt into the variable lastline
+lastline=$( tail -n 1 mainCarFile.txt )
+
+if [ "$lastline" == "WDC456 bmw 2009 6" ]; then
+    echo "Test one: car created successfully. Passed"
+else
+    echo "Test one: car not found: Failing"
+    exit
+fi
+```
+
+The **third step** is to edit the car information 
+
 
 
