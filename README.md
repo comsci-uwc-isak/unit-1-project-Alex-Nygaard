@@ -1,5 +1,10 @@
 ![CarRental](logo.png)
-
+```.py
+Marks=28
+Demo=4
+Total=(Marks+Demo)=32
+```
+**Graded on Nov 6**
 Car Rental Minimal App
 ===========================
 
@@ -35,11 +40,31 @@ These are outcomes that can be measured
 1. A car information can be deleted
 1. The application can be uninstalled
 
+**Criterion A**
+
+|Level|Descriptor|
+|----|-----|
+|5|The client in the car rental office is identified and his situation described. The rationale for choosing the proposed product (Computer tools used) is justified and includes a range of appropriate criteria for evaluating the success of the product.|
+```.sh
+Rational
+* Great job with this criterion! You could improve it by adding justifications for the tools used including BASH/GIT. One simple reason is that we are learning those tools in class 
+```
+
 Design
 ---------
 ![SystemDiagram](systemDiagram.jpg)
 **Fig. 1** This diagram shows the main components of the minimal rental app. It includes the input/outputs and main actions.
 
+## Criterion B
+|**level**|**Description**|
+|-----|------------|
+|10|An outline test plan, are detailed and complete. A system diagram and at least 3 flow diagrams for algorithms in the product are included. From this information it is clear how the product was developed.|
+```.sh
+Rationale
+* Great job with the flow diagrams and the system diagram.
+* You are losing marks in this criterion because you did not include the figure captions and the descriptions after every figure. This is important because you want to use adequately images to draw the attention of the reader to salient points.
+The description is a paragraph that explains the figure and tells the reader why you included the figure: "As seen in Fig. 1. the system proposed for the CarRentalApp consist of ..." 
+```
 
 Development
 --------
@@ -229,6 +254,15 @@ if [ $1 == "create" ]; then
 
     echo "** AUTHOR **"
     echo "  Programmer: Alexander Nygaard"
+```
+## Criterion C
+|**level**|**Description**|
+|-----|------------|
+|6|The proposed solution is characterized by the appropriate use of existing tools. The techniques are adequate for the task and their use is explained. All sources are identified.|
+```.sh
+Rationale
+* Neat work here Alex
+* Let's start using citations and a References section at the end of the document. Use the references in the body of the development where you use the information, for example: "As shown in [1], we can read from a file in bash using ...", and then in the References section you add the MLA entry.
 ```
 
 Evaluation
@@ -470,3 +504,12 @@ Currently, the backup system is quite primitive and simple. The choice of backin
 
 ##### Graphical User Interface
 The current text-based user interface might be perceived as intimidating and difficult to use by certain clients. An improved GUI application would greatly improve both the user experience and the usability of the product. While not knowing specifically how this would be accomplished, I know there are many GUI libraries in various programming languages. 
+
+## Criterion D
+|**level**|**Description**|
+|-----|------------|
+|6|The product is fully evaluated against the success criteria identified in criterion A. Recommendations for further improvement of the product are realistic.|
+```.sh
+Rationale
+* The Improvements are realistic and necessary. Good job with the test plan and the evaluation of the criteria.
+```
